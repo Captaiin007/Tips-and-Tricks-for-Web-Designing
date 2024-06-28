@@ -1,0 +1,554 @@
+/* mix-blend-mode: multiply; -> this property can blend image's plain background into parent element's background */
+@font-face { /* we can add any font and give the the desired font-family name */
+            font-family: 'Gilroy';
+            src: url(fonts/Gilroy/Gilroy-Regular.ttf);
+            font-family: 'Heading Now';
+            src: url(fonts/Heading-Now-Trial/HeadingNowTrial-24Regular.ttf);
+}
+:root{ /* here we can create our custom variables as root elements and can use over the whole document */
+    --base-color: lightseagreen;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main-container {
+  display: inline-grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+}
+.base-container {
+  width: 33vw;
+  height: 33vw;
+  margin: 2px 1px;
+  background-color: rgba(211, 211, 211, 0.4);
+  font-family: "Segoe UI", sans-serif;
+  color: black;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+}
+.index {
+  color: grey;
+  margin-right: 2px;
+}
+.inner-img {
+  width: 28vw;
+  height: auto;
+  margin: 3.5vw 2.5vw 0 2.5vw;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.I-div {
+  width: 28vw;
+  height: 28vw;
+  margin: 2.4vw 2.5vw 0 2.5vw;
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* .container1 {
+  grid-column: 1/3;
+} */
+#c1-img1 {
+  filter: blur(
+    4px
+  ); /* values: blur(px), brightness(%), contrast(number), drop-shadow(number), greyscale(%), hue-rotate(deg), opacity(%), saturate(%), sepia(%), unset, url(link) */
+}
+/* .container2 {
+  grid-column: 2/3;
+} */
+#c2-div1 {
+  background-color: black;
+}
+#c2-img1 {
+  width: 22vw;
+  margin: 2% 10%;
+  background-color: white;
+  border: 2px solid chartreuse;
+  /* 'clip-path' property allows us to make complex shapes(like Pentagon, Bevel, Message, Rabbet etc.) in CSS.
+            value: source-(https://bennettfeely.com/clippy/) */
+  clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+}
+/* .container3 {
+  grid-column: 3/3;
+} */
+#c3-div1 {
+  background-color: rgb(253, 153, 153);;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#c3-img1 {
+  width: 28vw;
+  height: auto;
+  margin: auto;
+  border: none;
+  /* a shorthand property for all the transition properties.
+  transition: 'property' 'duration' 'timing-function' 'delay' */
+  transition: all ease 1s;
+}
+#c3-img1:hover {
+  scale: 1.2; /* increases the image size by 1.2 on hovering */
+}
+#c4-btn1 {
+  font-size: 46px;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 108px 32px;
+  margin: 50px;
+  border: none;
+  color: #fff;
+  background-color: red;
+  transition: all ease 0.4s;
+}
+#c4-btn1:hover {
+  box-shadow: 10px 10px 10px black; /* add-on a shadow on the box on hovering */
+}
+#c5-div1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.c5-div1-h1 {
+  font-size: 71px;
+  font-weight: 800;
+  background-image: url("img/Galaxy.jpg"); /* add-on a image on the background */
+  color: transparent; /* makes the color of the text as transparent */
+  background-size: cover; /* sets the size of background-image as cover */
+  background-position: center; /* sets the position of the background-image as center */
+  background-clip: text; /* determines the background painting area */
+  /* -webkit-background-clip: text; */
+}
+#c6-div1 {
+  background: linear-gradient(to right bottom,violet,indigo,blue,green,yellow,orange,red);
+  /* 'linear-gradient()' property accepts the direction followed by colors to form and set gradient */
+}
+#c7-div1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#c7-div1-div {
+  width: 26vw;
+  height: 26vw;
+  padding: 5px;
+  /* border: 5px solid red; */
+  background: linear-gradient(
+    to bottom,
+    rgb(255, 174, 0),
+    orange,
+    rgb(255, 32, 69),
+    purple,
+    blue
+  );
+  border-radius: 50%; /* this turns the border into the shape of circle */
+}
+#c7-div1-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* spreads the object as per the value accordingly */
+  border-radius: 50%;
+}
+#c8-div1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#c8-div1-img {
+  width: auto;
+  height: 98%;
+  /* box-shadow: 10px 10px 20px black; ->this property sets shadow on the image edges */
+  filter: drop-shadow(
+    10px 10px 10px black
+  ); /* applies a shadow effect to an element's content */
+}
+#c9-div1 {
+  display: flex;
+  flex-direction: column; /* defines the direction of flex items */
+  justify-content: center;
+}
+#c9-div1-h11,
+#c9-div1-h12,
+#c9-div1-h13 {
+  font-size: 71px; /* controls size of the text */
+  font-weight: 800; /* controls boldness of the text */
+  color: white;
+}
+#c9-div1-h11 {
+  -webkit-text-stroke: 3px black; /* add-on a stroke on the targeted text */
+}
+#c9-div1-h12 {
+  -webkit-text-stroke: 2px darkgray;
+}
+#c9-div1-h13 {
+  -webkit-text-stroke: 1px lightgrey;
+}
+#c10-div1 {
+  overflow: scroll; /* controls and utilizes the overflow of the content */
+}
+.container10 div::-webkit-scrollbar {
+  background-color: transparent; /* adopts the background-color same as parent */
+}
+.container10 div::-webkit-scrollbar-thumb {
+  background: linear-gradient(orangered, white, green);
+  border-radius: 50px;
+}
+.c10-div1-p {
+  margin-bottom: 56%;
+  font-size: 30px;
+  font-weight: 100;
+}
+#c11-div1-div {
+  width: 150px;
+  height: 150px;
+  margin: 115px auto;
+  /* background-color: red; */
+  border: 5px solid grey;
+  border-radius: 50%;
+  border-top-color: rgb(37, 37, 37); /* colors of border can be set partially */
+  animation: rotate 1s infinite; /* animation: 'name', 'duration', 'timing-function', 'delay', 'iteration-count', 'direction', 'fill-mode', 'play-state', 'timeline' */
+}
+@keyframes rotate {
+  /* animation keyframe definition */
+  100% {
+    rotate: 360deg;
+  }
+}
+#c12-div1-div {
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#c12-div1-h1 {
+  font-size: 75px;
+  font-weight: 600;
+  position: relative; /* element is positioned according to the normal flow of document, and then offset is relative to itself based on the values of top, right, bottom, left */
+}
+#c12-div1-h1::after {
+  /* pseudo elements(virtual elements): before, after */
+  content: "";
+  position: absolute; /* element is removed from the normal document flow, and no space is created for the element in the page layout */
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 0%;
+  background-color: #333;
+  transition: all ease 1s;
+}
+#c12-div1-h1:hover::after {
+  width: 100%;
+}
+#c13-div1-p {
+  margin: 33% 1%;
+  font-size: 30px;
+  font-weight: 700;
+}
+#c13-div1-p span {
+  color: red;
+  text-decoration: line-through; /* puts a horizontal line through the targeted text */
+}
+#c14-div1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#c14-div1 h1:nth-child(2n) {
+  /* we can target number of elements of same type out of n elements without giving id's to them */
+  color: red;
+}
+#c15-div1-btn {
+  width: 220px;
+  height: 75px;
+  margin: 40% 22%;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgb(63, 255, 25);
+  border: none;
+  border-radius: 5px;
+  transition: all ease 0.5s;
+}
+#c15-div1-btn:active {
+  /* triggers when the element is active(clicked) */
+  scale: 0.9;
+}
+#c16-div1-div {
+  width: 100%;
+  height: 100%;
+  background: center no-repeat url("img/Black-Hayabusa.png");
+  background-size: contain;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden; /* hides the overflowing part of an item */
+}
+#c16-div1-div:hover #c16-bottom {
+  bottom: 0%;
+}
+#c16-bottom {
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(transparent, black);
+  border-radius: 5px;
+  position: absolute;
+  bottom: -40%;
+  transition: all ease 0.3s;
+}
+#c17-parent {
+  background-color: lightskyblue;
+  border-radius: 10px;
+  white-space: nowrap;
+  overflow-x: auto; /* controls the horizontal(X-axis) overflow */
+  overflow-y: hidden; /* controls the vertical(Y-axis) overflow */
+}
+.c17-child {
+  width: 120px;
+  height: 359px;
+  margin: 8px;
+  display: inline-block; /* takes only the space required by the elements and also allows setting width, height, margin, padding */
+  background-color: salmon;
+}
+#c18-div1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#c18-div1-h1 {
+  font-weight: 700;
+  font-size: 135px;
+  font-family: 'Heading Now';
+  font-stretch: 150%; /* stretch the text according to the given value */
+  transition: all ease 0.5s;
+}
+#c18-div1-h1:hover {
+  font-stretch: 250%;
+}
+#c19-div1-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover; 
+  object-position: center; /* specifies elements's position inside it's box */
+  mask-image: url(img/Splash-effect.png); /* sets the mask layer image of an element */
+  mask-size: cover; /* specifies the size of the mask layer images */
+}
+#c20-div1-div {
+  width: 50%;
+  height: 50%;
+  margin: 110px auto;
+  background-color: rgb(0, 110, 255);
+  border-radius: 5px;
+  position: relative;
+  rotate: 45deg;
+}
+#c20-div1-div:before { /* before: a psuedo element */
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 110, 255);
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, 0);
+}
+#c20-div1-div:after { /* after: a psuedo element */
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 110, 255);
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(0, -50%);
+}
+#c21-div1-div {
+    width: 100%;
+    height: 100%;
+    background-image: url(img/Hot-air-balloon.png);
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#c21-div1-h1 {
+    width: 100%;
+    padding: 10px;
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px); /* proper works when alpha is < 1 */
+}
+#c22-div1-p {
+    font-size: larger;
+    margin: 45% auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#c23-div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#c23-div1-div {
+    width: 70%;
+    height: 70%;
+    border-radius: 40px;
+    background-color: #c1c1c1;
+    /* 20px wide and 60px blurred black shadow with 0.5 opacity is given to right and bottom edge, -20px wide and 60px blurred white shadow with 0.5 opacity is given to top and left edge */
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.5),inset -20px -20px 60px rgba(255, 255, 255, 0.5);
+}
+#c23-div1-img {
+    width: 45%;
+    height: auto;
+    margin: 28%;
+    background-color: transparent;
+}
+#c24-div1 {
+    background-image: url(img/Galaxy.jpg);
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#c24-div1-div {
+    width: 70%;
+    height: 70%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+#c24-div1-p {
+    margin: 35% auto;
+    font-size: 50px;
+    color: white;
+}
+#c25-div1-div {
+    width: 7px;
+    height: 100%;
+    margin: 0px auto;
+    background: linear-gradient(to right, red, yellow, red);
+    box-shadow: 0px 0px 65px 20px rgba(255, 0, 0, 0.7);
+}
+#c26-div1{
+    background-color: black;
+}
+#c26-div1-h1 {
+    font-size: 93px;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(to right, red, blue);
+    color: transparent;
+    background-clip: text;
+    text-shadow: 0px 0px 60px rgba(255, 0, 0, 0.5);
+    animation: glow 1s infinite alternate;
+}
+@keyframes glow {
+    100%{
+        text-shadow: 0px 0px 60px rgba(0, 0, 255, 0.5);
+    }
+}
+#c27-div1 {
+    background-color: black;
+    perspective: 250px;
+}
+#c27-div1-img {
+    height: 65%;
+    margin: 15% 1%;
+    transform: rotateX(20deg);
+}
+#c28-div1 {
+  display: grid;
+  place-items: center;
+}
+.c28-line {
+  width: 12ch;
+  animation: typing-effect 1s steps(13, end) infinite alternate, cursor .8s step-end infinite;
+  animation-delay: 1s;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-size: 3em;
+  font-family: monospace;
+}
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes typing-effect {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 13ch;
+  }
+}
+#c29-div1 {
+  background: url(img/Galaxy.jpg);
+  background-size: cover;
+  background-position: center;
+}
+#c29-div1-div {
+  width: 80%;
+  height: 45%;
+  margin: 28% auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+}
+#c29-time {
+  font-size: 30px;
+  font-family: 'Arial Rounded MT';
+  color: white;
+}
+#c30-div1-img {
+  width: 100%;
+  background: transparent;
+}
+#c30-div1-div {
+  background: lightyellow;
+}
+#c31-div1-div {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 6px 2px;
+  background: yellowgreen;
+  border-radius: 10px;
+  resize: both;
+  overflow: auto;
+}
+#c31-div1-div p {
+  font-size: 30px;
+  font-weight: 700;
+}
+#c32-div1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#c32-div1-div {
+  width: 300px;
+  height: 300px;
+  background: conic-gradient(violet,indigo,blue,green,yellow,orange,red,violet);
+  border: 3px dashed black;
+  border-radius: 50%;
+  animation: wheel 1s linear infinite;
+}
+@keyframes wheel {
+  100%{
+    rotate: 360deg;
+  }
+}

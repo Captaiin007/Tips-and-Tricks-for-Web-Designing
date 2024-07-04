@@ -63,7 +63,9 @@ body {
     width: 1.2em;
     height: 1.2em;
     background: url("./img/moon-png.png");
-    background-size: cover;}
+    background-size: cover;
+    box-shadow: 0 0 2px silver, 0 0 4px silver, 0 0 6px silver;
+}
 @keyframes orbit {
     to {
         transform: rotate(360deg);

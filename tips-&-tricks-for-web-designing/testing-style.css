@@ -552,3 +552,45 @@
     rotate: 360deg;
   }
 }
+#c33-div1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#c33-div1 p {
+  animation: animateText 4s linear infinite;
+}
+.text-col-1 {
+  --color1: #f4ac45;
+  --color2: #a61c3c;
+  --color3: #694a38;
+}
+.text-col-2 {
+  --color1: #ab92bf;
+  --color2: #41c2c0;
+  --color3: #107e6c;
+}
+.text-col-3 {
+  --color1: #ed6a5a;
+  --color2: #f86624;
+  --color3: #f991cc;
+}
+.text-col-4 {
+  --color1: #3d8dae;
+  --color2: #df8453;
+  --color3: #e4a9a8;
+}
+@keyframes animateText {
+  0% { color: var(--color1); }
+  32% { color: var(--color1); }
+  33% { color: var(--color2); }
+  65% { color: var(--color2); }
+  66% { color: var(--color3); }
+  99% { color: var(--color3); }
+  100% { color: var(--color1); }
+}

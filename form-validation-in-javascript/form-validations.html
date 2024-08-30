@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <style>
+        body {
+            background-color: black;
+            color: white
+        }
+    </style>
+    <script>
+        function validateForm() {
+            // various regular expressions for form validation
+            var emailRegEx = /^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+            var passwordRegEx = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9@#$%^&*]{5,8}$/;
+            var phoneRegEx = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+    
+            var flag = true;
+            var error1 = document.getElementById('name-error');
+            var error2 = document.getElementById('email-error');
+            var error3 = document.getElementById('password-error');
+            var error4 = document.getElementById('mobile-error');
+            var error5 = document.getElementById('address-error');
+            var error6 = document.getElementById('gender-error');
+            var error7 = document.getElementById('city-error');
+            var error8 = document.getElementById('interest-error');
+            var error9 = document.getElementById('picture-error');
+
+            var name = document.getElementById('name');
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+            var mobNumber = document.getElementById('mob-number');
+            var address = document.getElementById('address');
+            var genderM = document.getElementById('gender-m');
+            var genderF = document.getElementById('gender-f');
+            var city = document.getElementById('city');
+            var interests = document.getElementsByClassName('interests');
+            var picture = document.getElementById('picture');
+
+            // validating name field
+            if(name.value.length == 0) {
+                error1.innerText = "*Name is required";
+                name.style.border = "2px solid red";
+                flag = false;
+            }
+            else if(!isNaN(name.value)) {
+                error1.innerText = "*Name must be alphabetical";
+                name.style.border = "2px solid red" ;
+                flag = false;
+            }
+            else {
+                error1.innerText = "";
+                name.style.border = "1px solid black";
+            }
+            // validating email field
+            if(email.value.length == 0) {
+                error2.innerText = "*Email is required";
+                email.style.border = "2px solid red";
+                flag = false;
+            }
+            else if(!emailRegEx.test(email.value)) {
+                error2.innerText = "*Email must contain @ and .";
+                email.style.border = "2px solid red";
+                flag = false;
+            }
+            else {
+                error2.innerText = "";
+                email.style.border = "1px solid black";
+            }
+            // validating password field
+            if(password.value.length == 0) {
+                error3.innerText = "*Password is required";
+                password.style.border = "2px solid red";
+                flag = false;
+            }
+            else if(password.value.length < 5 || password.value.length > 8) {
+                error3.innerText = "*Password must be 5-8 characters long";
+                password.style.border = "2px solid red";
+                flag = false;
+            }
+            else if(!passwordRegEx.test(password.value)) {
+                error3.innerText = "*Password must contain a lowercase, uppercase, and a special character";
+                password.style.border = "2px solid red";
+                flag = false;
+            }
+            else {
+                error3.innerText = "";
+                password.style.border = "1px solid black";
+            }
+            // validating mobile number field
+            if(mobNumber.value.length == 0) {
+                error4.innerText = "*Mobile number is required";
+                mobNumber.style.border = "2px solid red";
+                flag = false;
+            }
+            else if(!phoneRegEx.test(mobNumber.value)) {
+                error4.innerText = "*Mobile number must be of 10 digits";
+                mobNumber.style.border = "2px solid red";
+                flag = false;
+            }
+            else if(isNaN(mobNumber.value)) {
+                error4.innerText = "*Mobile number must be numeric";
+                mobNumber.style.border = "2px solid red";
+                flag = false;
+            }
+            else {
+                error4.innerText = "";
+                mobNumber.style.border = "1px solid black";
+            }
+            // validating address field
+            if(address.value.length == 0) {
+                error5.innerText = "*Address is required";
+                address.style.border = "2px solid red";
+                flag = false;
+            }
+            else if(address.value.length > 60) {
+                error5.innerText = "*Address can be only 60 characters long";
+                address.style.border = "2px solid red";
+                flag = false;
+            }
+            else {
+                error5.innerText = "";
+                address.style.border = "1px solid black";
+            }
+            // validating gender field
+            if(!genderM.checked && !genderF.checked) {
+                error6.innerText = "*Gender is required";
+                flag = false;
+            }
+            else {
+                error6.innerText = "";
+            }
+            // validating city field
+            if(city.value == "default") {
+                error7.innerText = "*City is required";
+                city.style.border = "2px solid red";
+                flag = false;
+            }
+            else {
+                error7.innerText = "";
+                city.style.border = "1px solid black";
+            }
+            // validating interest field
+            for(let interest of interests) {
+                var isChecked = false;
+                if(interest.checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+            if(!isChecked) {
+                error8.innerText = "*Interests are required";
+                flag = false;
+            }
+            else {
+                error8.innerText = "";
+            }
+            // validating picture field
+            if(picture.value.length == 0) {
+                error9.innerText = "*Picture is required";
+                picture.style.border = "2px solid red";
+                flag = false;
+            }
+            else {
+                error9.innerText = "";
+                picture.style.border = "1px solid black";
+            }
+            return flag;
+        }
+    </script>
+    </head>
+<body>
+    <center>
+        <form method="" action="" enctype="multipart/form-data">
+            <table border="1" cellpadding="5" cellspacing="2">
+                <thead>
+                    <tr><th colspan="3"><h1>Register Yourself!</h1></th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label>Name</label></td>
+                        <td>
+                            <input id="name" type="text" onkeyup="return validateForm()" placeholder="Enter your name">
+                        </td>
+                        <td><font color="red" id="name-error"></font></td>
+                    </tr>
+                    <tr>
+                        <td><label>Email</label></td>
+                        <td>
+                            <input id="email" type="text" onkeyup="return validateForm()" placeholder="Enter e-mail">
+                        </td>
+                        <td><font color="red" id="email-error"></font></td>
+                    </tr>
+                    <tr>
+                        <td><label>Password</label></td>
+                        <td>
+                            <input id="password" type="text" onkeyup="return validateForm()" placeholder="Enter password">
+                        </td>
+                        <td><font color="red" id="password-error"></font></td>
+                    </tr>
+                    <tr>
+                        <td><label>Mobile</label></td>
+                        <td>
+                            <input id="mob-number" type="text" onkeyup="return validateForm()" placeholder="Enter mobile number">
+                        </td>
+                        <td><font color="red" id="mobile-error"></font></td>
+                    </tr>
+                    <tr>
+                        <td><label>Address</label></td>
+                        <td><textarea id="address" onkeyup="return validateForm()" rows="5" cols="21" name="address" placeholder="Enter address" id=""></textarea></td>
+                        <td><font color="red" id="address-error"></font></td>
+                    </tr>
+                    <tr>
+                        <td><label>Gender</label></td>
+                        <td>
+                            <label>Male</label>
+                            <input id="gender-m" onmousemove="return validateForm()" type="radio" name="gender" value="Male">
+                            <label>Female</label>
+                            <input id="gender-f" onmousemove="return validateForm()" type="radio" name="gender" value="Female">
+                        </td>
+                        <td><font color="red" id="gender-error"></font></td>
+                    </tr>
+                    <tr>
+                        <td><label>City</label></td>
+                        <td>
+                            <select id="city" onchange="return validateForm()" name="city">
+                                <option value="default">Select city</option>
+                                <option value="ujjain">Ujjain</option>
+                                <option value="indore">Indore</option>
+                                <option value="bhopal">Bhopal</option>
+                            </select>
+                        </td>
+                        <td><font color="red" id="city-error"></font></td>
+                    </tr>
+                    <tr>
+                        <td><label>Interests</label></td>
+                        <td>
+                            <input class="interests" onmousemove="return validateForm()" type="checkbox" value="Artificial Intelligence">
+                            <label>AI</label>
+                            <input class="interests" onmousemove="return validateForm()" type="checkbox" value="Web Development">
+                            <label>Web Dev</label>
+                            <input class="interests" onmousemove="return validateForm()" type="checkbox" value="Application Development">
+                            <label>App Dev</label>
+                            <input class="interests" onmousemove="return validateForm()" type="checkbox" value="Data Structures & Algorithms">
+                            <label>DSA</label>
+                        </td>
+                        <td><font color="red" id="interest-error"></font></td>
+                    </tr>
+                    <tr>
+                        <td><label>Upload Picture</label></td>
+                        <td>
+                            <input id="picture" onmousemove="return validateForm()" type="file">
+                        </td>
+                        <td><font color="red" id="picture-error"></font></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <center>
+                                <input type="submit" onclick="return validateForm()" value="Submit">
+                                &nbsp;&nbsp;&nbsp;
+                                <input type="reset" value="Reset">
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </center>
+
+</body>
+</html>
